@@ -8,6 +8,8 @@
     - name: Print a sample message
       debug: 
         msg: Hello World. Welcome to Ansible playbooks!
+      tags: 
+        - newtag
 
     - name: Example Task
       debug: 
