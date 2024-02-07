@@ -1,0 +1,23 @@
+---
+- name: A simple playbook file
+  hosts: Inventory
+  vars: 
+    - month: February
+  tasks:
+    
+    - name: Print a sample message
+      debug: 
+        msg: Hello World. Welcome to Ansible playbooks!
+
+    - name: Example Task
+      debug: 
+        msg: Today is Feb 7 2024
+
+    - name: using variables
+      debug: 
+        msg: The day is {{ day }}
+ 
+    - name: using variables
+      debug: 
+        msg: The month is {{ month }}
+      when: "{{ month }}" == February 
