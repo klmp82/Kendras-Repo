@@ -20,4 +20,22 @@
     - name: using variables
       debug: 
         msg: The month is {{ month }}
-      when: "{{ month }}" == February 
+     
+    - name: Install specific version of Apache
+      yum: 
+        name: httpd
+        state: present
+
+    - name: Install multiple packages
+      yum: 
+        name: "{{ item }}"
+        state: present
+      with_items: 
+         - samba
+         - vim
+         - tomcat
+      register: example
+
+    - name: print example results
+      debug:
+        var: example.changed
