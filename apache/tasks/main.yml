@@ -1,0 +1,27 @@
+---
+# tasks file for apache
+
+- name: Install specific version of Apache
+  yum:
+    name: httpd
+    state: present
+
+- name: Enable service to start on boot up
+  service:
+    name: httpd
+    state: started
+
+- name: Copy config template
+  template:
+    src: httpd.conf
+    dest: /etc/httpd/conf/httpd.conf
+
+- name: Copy html file
+  template:
+    src: kendra.html
+    dest: /var/www/html/kendra.html
+
+- name: Restart service 
+  service:
+    name: httpd
+    state: restarted

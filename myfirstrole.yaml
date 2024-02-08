@@ -1,0 +1,17 @@
+---
+- name: Install apache server
+  hosts: Inventory
+  gather_facts: yes
+  vars: 
+  roles: 
+    - apache
+  tags:
+    - apachetag
+    
+- name: Install ntp
+  hosts: Inventory
+  vars: 
+  roles: 
+    - ntp
+  tags: 
+    - ntptag
